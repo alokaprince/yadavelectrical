@@ -1,0 +1,48 @@
+<%= link_to '<button type="button">Back</button>'.html_safe, stocks_path %> |
+<%= link_to '<button type="button">Edit</button>'.html_safe, edit_stock_path(@stock) %>
+<p>
+  <strong>Prodname:</strong>
+  <%= @stock.prodname %>
+</p>
+
+<p>
+  <strong>Prodno:</strong>
+  <%= @stock.prodno %>
+</p>
+
+<p>
+  <strong>Manufact:</strong>
+  <%= @stock.manufact %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @stock.category %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @stock.unit %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @stock.quantity %>
+</p>
+
+<p>
+  <strong>Price1:</strong>
+  <%= @stock.price1 %>
+</p>
+
+<p>
+  <strong>Price2:</strong>
+  <%= @stock.price2 %>
+</p>
+
+<p>
+  <strong>Price3:</strong>
+  <%= @stock.price3 %>
+</p>
+
+

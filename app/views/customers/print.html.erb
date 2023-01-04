@@ -1,0 +1,68 @@
+
+<p style="text-align:right"> <%= link_to 'Print', print, :onclick => 'window.print();return false;'%></br><p>
+<p style="text-align:center; font-size:28px;font-weight:bold">Yadav Electronics</br><p>
+<h3>Bills</h3>
+Name: <b><%= @customer.name %> </b>
+Fathername: <b><%= @customer.father %> </b>
+Address: <b><%= @customer.address %> </b>
+Mobile: <b><%= @customer.mobile %></b><br><br>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
+<% sum=0 %>
+<% paid=0 %>
+<% balance=0 %>
+<table style="width:100%">
+  <thead>
+    <tr>
+      <th>Billno</th>
+      <th>Date</th>
+      <th>Credit</th>
+      <th>Debit</th>
+      <th>Remark</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer.bills.each do |bill| %>
+      <tr>
+        <td><%= bill.billno %></td>
+        <td><%= bill.date.strftime("%d/%m/%Y") %></td>
+        <td><%= bill.credit %></td>
+        <td><%= bill.debit %></td>
+        <td><%= bill.remark %></td>
+    
+      </tr>
+       <% sum = (sum + bill.credit) %>
+    <% paid = (paid + bill.debit) %>
+    <% balance = ( sum - paid)%>
+    <% end %>
+  </tbody>
+</table><br>
+ 
+ <table style="width:100%">
+  <thead>
+    <tr>
+      <th>Total</th>
+      <th>Recieved</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td style="font-size:22px; background-color:lightblue; font-weight:bold"><%= sum %></td>
+        <td style="font-size:22px; background-color:lightgreen; font-weight:bold"><%= paid %></td>
+        <td style="font-size:22px; background-color:orange; font-weight:bold"><%= balance %></td>
+      </tr>
+  </tbody>
+</table><br>    

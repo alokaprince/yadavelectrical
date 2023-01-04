@@ -1,0 +1,81 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+td:nth-child(6) { background-color: lightblue; font-weight:bold}
+td:nth-child(7) { background-color: lightgreen; font-weight:bold }
+td:nth-child(8) { background-color: orange; font-weight:bold }
+.footer {
+  position: fixed;
+  bottom: 0;
+  /* Set the fixed height of the footer here */
+  height: 35px;
+  width: 92.5%;
+  background-color: #d4d4d4;}
+</style>
+
+<% balance = 0.0 %>
+<% recieve = 0.0 %>
+<% total = 0.0 %>
+<h1>Customers</h1>
+
+<%= form_tag(search_page_path, :method => "get") do %>
+    <%= link_to '<button type="button">New Customer</button>'.html_safe, new_customer_path %>
+    <%= search_field_tag :search, params[:search], placeholder: "Name,Address" %>
+    <%= select_tag(:select, options_for_select([['Name', 'name'], ['Address', 'address']],'name')) %>
+    <%= button_tag "Search"%>  
+<% end %>
+<table style="width:100%">
+  <thead>
+    <tr>
+      <th>Sno.</th>
+      <th>Name</th>
+      <th>Fathername</th>
+      <th>Address</th>
+      <th>Mobileno</th>
+      <th>Total</th>
+      <th>Recieve</th>
+      <th>Balance</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each_with_index do |customer,index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= link_to customer.name, customer %></td>
+        <td><%= customer.father %></td>
+        <td><%= customer.address %></td>
+        <td><%= customer.mobile %></td>
+        <td><%= customer.total %></td>
+        <td><%= customer.recieve %></td>
+        <td><%= customer.balance %></td>
+        <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_customer_path(customer) %></td>
+        <td><%= button_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% total = total + customer.total%>
+      <% recieve = recieve + customer.recieve%>
+      <% balance = balance + customer.balance%>
+    <% end %>
+  </tbody>
+</table><br>
+
+
+<footer class="footer">
+<p>   TotalCustomers: <b><%= @totalcustomer %> </b>
+FinalTotal: <b><%= total %> </b>
+FinalRecieved: <b><%= recieve %> </b>
+FinalBalance: <b><%= balance %> </b>
+<b style= 'float: right'>
+<copyright>
+  &copy;<%= Time.now.year %> Made By Alok Tantuway:-8889185391 
+</copyright></b></p>
+</footer>

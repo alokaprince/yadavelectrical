@@ -1,0 +1,2 @@
+class Dailyexp < ApplicationRecord
+end

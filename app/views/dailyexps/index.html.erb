@@ -1,0 +1,55 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
+
+<h1>Dailyexps</h1>
+
+<%= link_to '<button type="button">New Exp</button>'.html_safe, new_dailyexp_path %>
+<%= form_tag("/dailyexps/index", method: "post") do %>
+  <%= select_tag(:select, options_for_select([['Today', '0'],['Yesterday','1'] ,['7Days', '7'],['15Days', '15'], ['1Month', '30'],['3Months', '90'], ['6Months', '180'],['1Year','365']],'Today')) %>
+  <%= button_tag "Search"%>   
+<% end %>
+<%sum1 = 0.0%>
+<%sum2 = 0.0%>
+<table style="width:50%">
+  <thead>
+    <tr>
+      <th>S.No.</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Remark</th>
+      <th>Debit</th>
+      <th>Credit</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dailyexps.each_with_index  do |dailyexp,index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= dailyexp.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= dailyexp.name %></td>
+        <td><%= dailyexp.remark %></td>
+        <td><%= dailyexp.amount %></td>
+        <td><%= dailyexp.amount2 %></td>
+        <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_dailyexp_path(dailyexp) %></td>
+        <td><%= button_to 'Destroy', dailyexp, method: :delete %></td>
+      </tr>
+      <%sum1 = sum1 + dailyexp.amount%>
+      <%sum2 = sum2 + dailyexp.amount2%>
+    <% end %>
+  </tbody>
+</table>
+</br>
+Total Expending:<b><%= sum1%></b></br>
+Total Recieving:<b><%= sum2%></b>

@@ -1,0 +1,70 @@
+<%= link_to '<button type="button">Back</button>'.html_safe, dealers_path %>     
+<%= link_to '<button type="button">Print Preview</button>'.html_safe, print3_page_path(@dealer),target: :_blank %></br></br>
+
+<h1>Bills</h1>
+Name: <b><%= @dealer.name %> </b>
+Address: <b><%= @dealer.address %> </b>
+Mobile: <b><%= @dealer.mobile %></b><br><br>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
+
+<table style="width:75%">
+  <thead>
+    <tr>
+      <th>S.No.</th>
+      <th>Billno</th>
+      <th>Date</th>
+      <th>Credit</th>
+      <th>Debit</th>
+      <th>Balance</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dealer.dealerbills.each_with_index do |bill,index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><b><%= link_to bill.billno, bill %></b></td>
+        <td><%= bill.date %></td>
+        <td><%= bill.credit %></td>
+        <td><%= bill.debit %></td>
+        <td><%= bill.credit - bill.debit %></td>
+        <td><%= bill.remark %></td>
+        <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_dealerbill_path(bill) %></td>
+        <td><%= button_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table><br>
+ 
+<%= render 'createbill' %>
+
+ 
+<table style="width:75%">
+  <thead>
+    <tr>
+      <th>Total</th>
+      <th>Recieved</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td style="font-size:22px; background-color:lightblue; font-weight:bold"><%= @dealer.total %></td>
+        <td style="font-size:22px; background-color:lightgreen; font-weight:bold"><%= @dealer.recieve %></td>
+        <td style="font-size:22px; background-color:orange; font-weight:bold"><%= @dealer.balance %></td>
+      </tr>
+  </tbody>
+</table><br>    

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Itemname:</strong>
+  <%= @dealeritem.itemname %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @dealeritem.quantity %>
+</p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= @dealeritem.rate %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @dealeritem.unit %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @dealeritem.amount %>
+</p>
+
+<p>
+  <strong>Dealerbill:</strong>
+  <%= @dealeritem.dealerbill_id %>
+</p>
+
+<%= link_to 'Edit', edit_dealeritem_path(@dealeritem) %> |
+<%= link_to 'Back', dealeritems_path %>

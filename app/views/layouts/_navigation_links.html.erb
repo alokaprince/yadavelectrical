@@ -1,0 +1,22 @@
+<%# add navigation links to this file %>
+<li><%= link_to 'Dealers', dealers_path %></li>
+<li><%= link_to 'Customers', root_path %></li>
+<li><%= link_to 'Bills', bills_path %></li>
+<li><%= link_to 'Works', works_path %></li>
+<%
+=begin%>
+ <li><%= link_to 'Items', items_path %></li> 
+<%
+=end%>
+<li><%= link_to 'Dailyexps', dailyexps_path %></li>
+<li><%= link_to 'Stocks', stocks_path %></li>
+
+<% if user_signed_in? %>
+  
+<li style="float:right"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>       
+
+<% else %>
+
+ <li style="float:right"> <%= link_to('Login', new_user_session_path)  %>  </li>
+
+<% end %>

@@ -1,0 +1,56 @@
+<%= link_to '<button type="button">Back</button>'.html_safe, stocks_path %><br><br>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
+
+<h1>Stocks</h1>
+
+<table style="width:100%">
+  <thead>
+    <tr>
+      <th>S.No.</th>
+      <th>Prodname</th>
+      <th>Prodno</th>
+      <th>Manufact</th>
+      <th>Category</th>
+      <th>Unit</th>
+      <th>Quantity</th>
+      <th>Landing</th>
+      <th>Mystri</th>
+      <th>Customer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stocks.each_with_index  do |stock,index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><b><%= stock.prodname %></b></td>
+        <td><%= stock.prodno %></td>
+        <td><%= stock.manufact %></td>
+        <td><%= stock.category %></td>
+        <td><%= stock.unit %></td>
+        <td><%= stock.quantity %></td>
+        <td><%= stock.price1 %></td>
+        <td><%= stock.price2 %></td>
+        <td><%= stock.price3 %></td>
+        <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
+        <td><%= link_to 'Delete', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

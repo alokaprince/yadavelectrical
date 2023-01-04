@@ -1,0 +1,37 @@
+<%= form_with(model: dailyexp, local: true) do |form| %>
+  <% if dailyexp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dailyexp.errors.count, "error") %> prohibited this dailyexp from being saved:</h2>
+
+      <ul>
+        <% dailyexp.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remark %>
+    <%= form.text_area :remark %>
+  </div>
+
+  <div class="field">
+    <%= form.label :debit %>
+    <%= form.text_field :amount,:required => 'required'  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :credit %>
+    <%= form.text_field :amount2,:required => 'required'  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

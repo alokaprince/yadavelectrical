@@ -1,0 +1,50 @@
+<% sum=0 %>
+<% paid=0 %>
+<% balance=0 %>
+<%= form_with(model: dealer, local: true) do |form| %>
+  <% if dealer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dealer.errors.count, "error") %> prohibited this dealer from being saved:</h2>
+
+      <ul>
+        <% dealer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mobile %>
+    <%= form.text_field :mobile %>
+  </div>
+
+  <div class="field">
+    
+    <%= form.hidden_field :total, value: sum %>
+  </div>
+
+  <div class="field">
+  
+    <%= form.hidden_field :recieve, value: paid %>
+  </div>
+
+  <div class="field">
+   
+    <%= form.hidden_field :balance, value: balance %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

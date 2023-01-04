@@ -1,0 +1,47 @@
+<%= form_with(model: dealerbill, local: true) do |form| %>
+  <% if dealerbill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dealerbill.errors.count, "error") %> prohibited this dealerbill from being saved:</h2>
+
+      <ul>
+        <% dealerbill.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :billno %>
+    <%= form.text_field :billno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :credit %>
+    <%= form.text_field :credit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :debit %>
+    <%= form.text_field :debit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remark %>
+    <%= form.text_area :remark %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dealer_id %>
+    <%= form.text_field :dealer_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

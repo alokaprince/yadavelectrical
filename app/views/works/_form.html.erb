@@ -1,0 +1,113 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
+
+<%= form_with(model: work, local: true) do |form| %>
+  <% if work.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(work.errors.count, "error") %> prohibited this work from being saved:</h2>
+
+      <ul>
+        <% work.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table >
+     <tr>
+     <tr>
+      <th>Name</th>
+       <th>Company</th>
+    </tr>
+    <tr>
+        <td><%= form.text_field :name,:required => 'required' %></td>
+        <td><%= form.text_field :company %></td>
+      </tr>  
+      <th>Hp</th>
+     <th>Model</th>
+    </tr>
+    <tr>
+        <td><%= form.text_field :HP %></td>
+        <td><%= form.select :model ,['V3','V4','V5','V6','Fan','Cooler','Mono Block']%></td>
+      </tr>  
+
+    <tr>
+      <th>Pitch1</th>
+      <th>Turn1</th>
+    </tr>
+     <tr>
+        <td><%= form.text_field :pitch1 %></td>
+        <td><%= form.text_field :turn1 %></td>
+      </tr>
+    <tr>
+      <th>Slot</th>
+      <th>Gauge</th>
+    </tr>
+    <tr>
+        <td><%= form.number_field :slot %></td>
+        <td><%= form.text_field :gauge %></td>
+      </tr> 
+    
+     <tr>
+      <th>Connection</th>
+      <th>Coil</th>
+      </tr>
+       <tr>
+        <td><%= form.select :connection, ['star','delta'] %></td>
+        <td><%= form.text_field :coil %></td>
+      </tr>  
+      <tr>
+      <th>Pitch2</th>
+      <th>Turn2</th>
+      </tr>
+      <tr>
+        <td><%= form.text_field :pitch2 %></td>
+        <td><%= form.text_field :turn2 %></td>
+      </tr> 
+      <tr>
+       <th>Gauge2</th>
+       <th>Weight</th>
+      </tr>
+      <tr>
+       <td><%= form.text_field :guage2 %></td>
+       <td><%= form.text_field :weight %></td>
+      </tr>
+
+      <tr>
+      <th>Stetarlen</th>
+      <th>Length</th>
+      </tr>
+      <tr>
+        <td> <%= form.text_field :stetarlen %></td>
+        <td><%= form.text_field :length %></td>
+      </tr> 
+
+      <tr>
+      <th>Credit</th>
+      <th>Debit</th>
+      </tr>
+      <tr>
+        <td> <%= form.text_field :amount,:required => 'required' %></td>
+        <td><%= form.text_field :amount2,:required => 'required' %></td>
+      </tr>     
+      <tr>
+      <th colspan="2">Remark</th>
+    </tr>
+    <tr>
+       <td colspan="2"><%= form.text_area :remark %></td>
+    </tr>
+      
+</table>
+ <%= form.submit %>
+<% end %>

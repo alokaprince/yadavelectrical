@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dealerbills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Billno</th>
+      <th>Date</th>
+      <th>Credit</th>
+      <th>Debit</th>
+      <th>Remark</th>
+      <th>Dealer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dealerbills.each do |dealerbill| %>
+      <tr>
+        <td><%= dealerbill.billno %></td>
+        <td><%= dealerbill.date %></td>
+        <td><%= dealerbill.credit %></td>
+        <td><%= dealerbill.debit %></td>
+        <td><%= dealerbill.remark %></td>
+        <td><%= dealerbill.dealer_id %></td>
+        <td><%= link_to 'Show', dealerbill %></td>
+        <td><%= link_to 'Edit', edit_dealerbill_path(dealerbill) %></td>
+        <td><%= link_to 'Destroy', dealerbill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dealerbill', new_dealerbill_path %>

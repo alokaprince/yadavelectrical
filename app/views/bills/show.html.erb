@@ -1,0 +1,130 @@
+<%= link_to '<button type="button">Back</button>'.html_safe, @customer %>  
+<%= link_to '<button type="button">Print Preview</button>'.html_safe, print2_page_path(@bill),target: :_blank %></br></br>
+
+Billno: <%= @bill.billno%></br>
+Name: <%= @bill.customer.name%></br>
+Date: <%= @bill.date.strftime("%d/%m/%Y")%>
+<h2>Items</h2>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
+
+
+<% unit= ["btl","bdl","can","ctn","dzn","gm","kg","ltr","mtr","ml","nos","pac","prs","pcs","qtl","rol","sqf","sqm","tbs"]%>
+<% item = []%>
+<% manu = []%>
+<% idk = []%>
+<% @stocks.each do |stock| %>
+  <% item.append(stock.prodname) %>
+  <% manu.append(stock.manufact) %>
+  <% pname = stock.prodname%>
+  <% manuf = stock.manufact%>
+  <% val = pname + "~" + manuf%>
+  <% idk.append(val)%>
+<% end %>
+
+<% sum = 0%>
+<table style="width:81%">
+  <thead>
+    <tr>
+      <th>Sno.</th>
+      <th>ITEMNAME</th>
+      <th>QUANTITY</th>
+      <th>RATE</th>
+      <th>UNIT</th>
+      <th>AMOUNT</th>
+    </tr>
+  </thead>
+<tbody>
+<% @bill.items.each_with_index  do |item,index| %>
+  <tr>
+        <td><%= index + 1 %></td>
+        <td><%= item.itemname %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.rate %></td>
+        <td><%= item.unit %></td>
+        <td><%= item.amount %></td>
+        <td><%= button_to 'Delete', item, method: :delete %></td>
+  </tr>
+<% sum = item.amount + sum%>
+<% end %>
+</tbody>
+</table>
+
+
+<%= form_with model: [ @bill, @bill.items.build ] do |form| %>
+<table style="width:81%">
+<tbody>
+      <tr>
+        <td><%= form.text_field :itemname,placeholder:"itemname",:required => 'required'%></td>
+        <td><%= form.select :unit, unit %></td>
+        <td><%= form.text_field :quantity, placeholder:"quantity",:required => 'required'%></td>
+        <td><%= form.text_field :rate, placeholder:"rate",:required => 'required'%></td> 
+        <td><%= form.submit %></td>
+      </tr>
+</tbody>
+</table>
+<% end %>
+</br>
+
+<table style="width:81%">
+  <thead>
+    <tr>
+      <th  style="text-align:right">Grand Total</th>
+      <th  style="text-align:right">Paid</th>
+      <th  style="text-align:right">Left</th>
+    </tr>
+  </thead>
+<tbody>
+  <tr>
+    <td  style="text-align:right"><%= sum %></td>
+    <td  style="text-align:right"><%= @bill.debit %></td>
+    <td  style="text-align:right"><%= sum - @bill.debit %></td>
+  </tr>
+</tbody>
+</table><br>
+
+For Bill payment:<div align="left" ><%= form_tag(pay1_page_path, :method => "post") do %>
+    <%= search_field_tag :pay, params[:pay], placeholder: "bill amt" %>
+    <%= button_tag "Pay bill"%>  
+<% end %>
+</div>
+</br>
+
+For Normal Payment:<div align="left" ><%= form_tag(credit_page_path, :method => "post") do %>
+    <%= search_field_tag :credit, params[:credit], placeholder: "credit",:required => 'required' %>
+    <%= search_field_tag :debit, params[:credit], placeholder: "debit",:required => 'required' %>
+    <%= search_field_tag :remark, params[:remark], placeholder: "remark" %>
+    <%= button_tag "submit"%>  
+<% end %>
+</div>
+</br>
+
+ <table style="width:81%">
+  <thead>
+    <tr>
+      <th>Total</th>
+      <th>Recieve</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+
+  <tbody>
+   
+      <tr>
+        <td><%= @customer.total %></td>
+        <td><%= @customer.recieve %></td>
+        <td><%= @customer.balance %></td>
+      </tr>
+  </tbody>
+</table><br>
+

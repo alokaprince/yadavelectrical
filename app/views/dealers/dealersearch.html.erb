@@ -1,0 +1,11 @@
+<% flash.each do |type, msg| %>
+    <div class="alert alert-info">
+    <%= msg %>
+    </div>
+<% end %>
+<% if @select == 'name'%>
+<%= render 'search_name' %>
+<% end %>
+<% if @select == 'address'%>
+<%= render 'search_address' %>
+<% end %>

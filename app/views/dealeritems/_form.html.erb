@@ -1,0 +1,47 @@
+<%= form_with(model: dealeritem, local: true) do |form| %>
+  <% if dealeritem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dealeritem.errors.count, "error") %> prohibited this dealeritem from being saved:</h2>
+
+      <ul>
+        <% dealeritem.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :itemname %>
+    <%= form.text_field :itemname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rate %>
+    <%= form.text_field :rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit %>
+    <%= form.text_field :unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dealerbill_id %>
+    <%= form.text_field :dealerbill_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

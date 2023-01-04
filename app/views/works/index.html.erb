@@ -1,0 +1,82 @@
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
+<h1>Works</h1>
+<%= link_to '<button type="button">New Work</button>'.html_safe, new_work_path %></br>
+<%= form_tag(search1_page_path, :method=> "post") do %>
+<%= search_field_tag :search, params[:search], placeholder: "Name" %>     
+<%= button_tag "Search"%>  
+<% end %>
+<table style="width:75%">
+  <thead>
+    <tr>
+      <th>S.No.</th>
+      <th>Name</th>
+      <th>Hp</th>
+      <th>Company</th>
+      <th>Model</th>
+      <th>Pitch1</th>
+      <th>Turn1</th>
+      <th>Gauge</th>
+      <th>Weight</th>
+      <th>Slot</th>
+      <th>Connection</th>
+      <th>Coil</th>
+      <th>Pitch2</th>
+      <th>Turn2</th>
+      <th>Gauge2</th>
+      <th>Stetarlen</th>
+      <th>Length</th>
+      <th>Remark</th>
+      <th>Credit</th>
+      <th>Debit</th>
+      <th>Balance</th>
+      
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @works.each_with_index  do |work,index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= work.name %></td>
+        <td><%= work.HP %></td>
+        <td><%= work.company %></td>
+        <td><%= work.model %></td>
+        <td><%= work.pitch1 %></td>
+        <td><%= work.turn1 %></td>
+        <td><%= work.gauge %></td>
+        <td><%= work.weight %></td>
+        <td><%= work.slot %></td>
+        <td><%= work.connection %></td>
+        <td><%= work.coil %></td>
+        <td><%= work.pitch2 %></td>
+        <td><%= work.turn2 %></td>
+        <td><%= work.guage2 %></td>
+        <td><%= work.stetarlen %></td>
+        <td><%= work.length %></td>
+        <td><%= work.remark %></td>
+        <td><%= work.amount %></td>
+        <td><%= work.amount2 %></td>
+        <%balance = Float(work.amount) - Float(work.amount2)%>
+        <td><%= balance %></td>
+        <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_work_path(work) %></td>
+        <td><%= button_to 'Delete', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

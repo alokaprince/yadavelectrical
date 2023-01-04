@@ -1,0 +1,46 @@
+<%= link_to '<button type="button">Back</button>'.html_safe, customers_path %><br><br>
+<h1><%= @parameter %>:</h1>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+
+</style>
+</head>
+<body>
+
+ <table style="width:100%">
+  <thead>
+    <tr>
+      <th>SNo.</th>
+      <th>Name</th>
+      <th>Father</th>
+      <th>Mobile</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @results.each_with_index do |result, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= result.name %></td>
+        <td><%= result.fathername %></td>
+        <td><%= result.mobileno %></td>
+        <td><%= result.balance %></td>
+    
+    <% end %>
+  </tbody>
+</table> <br>
+
+
+
+ 

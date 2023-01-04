@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  HP: MyString
+  company: MyString
+  model: MyString
+  pitch1: MyString
+  turn1: 1.5
+  gauge: 1.5
+  weight: 1.5
+  slot: 1
+  connection: MyString
+  coil: MyString
+  pitch2: MyString
+  turn2: 1.5
+  stetarlen: 1.5
+  length: 1.5
+  remark: MyText
+  amount: 1.5
+
+two:
+  name: MyString
+  HP: MyString
+  company: MyString
+  model: MyString
+  pitch1: MyString
+  turn1: 1.5
+  gauge: 1.5
+  weight: 1.5
+  slot: 1
+  connection: MyString
+  coil: MyString
+  pitch2: MyString
+  turn2: 1.5
+  stetarlen: 1.5
+  length: 1.5
+  remark: MyText
+  amount: 1.5

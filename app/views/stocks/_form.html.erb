@@ -1,0 +1,65 @@
+
+<%= form_with(model: stock, local: true) do |form| %>
+  <% if stock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
+
+      <ul>
+        <% stock.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :prodname %>
+    <%= form.text_field :prodname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prodno %>
+    <%= form.text_field :prodno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :manufact %>
+    <%= form.text_field :manufact %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category %>
+  </div>
+
+<% unit= ["btl","bdl","can","ctn","dzn","gm","kg","ltr","ft","mtr","ml","nos","pac","prs","pcs","qtl","rol","sqf","sqm","tbs"]%>
+  <div class="field">
+   
+    <%= form.select :unit, unit %>
+    
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :landing %>
+    <%= form.text_field :price1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mystri %>
+    <%= form.text_field :price2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer %>
+    <%= form.text_field :price3 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

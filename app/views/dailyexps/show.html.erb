@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dailyexp.name %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @dailyexp.remark %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @dailyexp.amount %>
+</p>
+
+<%= link_to 'Edit', edit_dailyexp_path(@dailyexp) %> |
+<%= link_to 'Back', dailyexps_path %>

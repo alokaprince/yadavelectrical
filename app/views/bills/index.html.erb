@@ -1,0 +1,82 @@
+
+<h1>Bills</h1>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  /* Set the fixed height of the footer here */
+  height: 35px;
+  width: 92.5%;
+  background-color: #d4d4d4;}
+</style>
+<%period = ["All","today","7days","15days","1months","3months","6months","1year"]%>
+
+<%= form_tag("/bills/index", method: "post") do %>
+    
+  <%= select_tag(:select, options_for_select([['All', '3650'],['Today', '0'], ['7Days', '7'],['15Days', '15'], ['1Month', '30'],['3Months', '90'], ['6Months', '180'],['1Year','365']],'All')) %>
+  <%= button_tag "Search"%>   
+<% end %>
+<%= form_tag("/bills/index", method: "post") do %>
+  <%= search_field_tag :from, params[:from], placeholder: "From " %>
+  <%= search_field_tag :to, params[:to], placeholder: "To" %>
+  <%= button_tag "Search"%>  
+
+<% end %>
+
+<% balance = 0.0 %>
+<% recieve = 0.0 %>
+<% total = 0.0 %>
+
+<table style="width:100%">
+  <thead>
+    <tr>
+      <th>S.No.</th>
+      <th>Customer</th>
+      <th>Billno</th>
+      <th>Date</th>
+      <th>Credit</th>
+      <th>Debit</th>
+      <th>Balance</th>
+      <th>Remark</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bills.each_with_index do |bill,index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= link_to bill.customer.name, bill %></td>
+        <td><%= link_to bill.billno, bill %></td>
+        <td><%= bill.date %></td>
+        <td><%= bill.credit %></td>
+        <td><%= bill.debit %></td>
+        <td><%= bill.credit - bill.debit %></td>
+        <td><%= bill.remark %></td>
+      </tr>
+      <% total = total + bill.credit%>
+      <% recieve = recieve + bill.debit%>
+    <% end %>
+  </tbody>
+
+</table>
+
+
+<footer class="footer">
+<p>   TotalBills: <b><%= @totalbill %> </b>
+FinalTotal: <b><%= total %> </b>
+FinalRecieved: <b><%= recieve %> </b>
+<b style= 'float: right'>
+<copyright>
+  &copy;<%= Time.now.year %> Made By Alok Tantuway:-8889185391 
+</copyright></b></p>
+</footer>

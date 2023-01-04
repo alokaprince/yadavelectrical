@@ -1,0 +1,68 @@
+<p style="text-align:right"> <%= link_to 'Print', print4, :onclick => 'window.print();return false;'%></br><p>
+<p style="text-align:center; font-size:28px;font-weight:bold">Yadav Electronics</br><p>
+
+Dealerbillno: <%= @dealerbill.billno%></br>
+Name: <%= @dealerbill.dealer.name%></br>
+Date: <%= @dealerbill.date.strftime("%d/%m/%Y")%>
+<h2>Items</h2>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
+
+<% sum = 0%>
+<table style="width:80%">
+  <thead>
+    <tr>
+      <th>Sno.</th>
+      <th>ITEMNAME</th>
+      <th>QUANTITY</th>
+      <th>RATE</th>
+      <th>UNIT</th>
+      <th>AMOUNT</th>
+    </tr>
+  </thead>
+<tbody>
+<% @dealerbill.items.each_with_index  do |item,index| %>
+  <tr>
+        <td><%= index + 1 %></td>
+        <td><%= item.itemname %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.rate %></td>
+        <td><%= item.unit %></td>
+        <td><%= item.amount %></td>
+  </tr>
+<% sum = item.amount + sum%>
+<% end %>
+</tbody>
+</table>
+
+
+<table style="width:80%">
+  <thead>
+    <tr>
+      <th  style="text-align:right">Grand Total</th>
+      <th  style="text-align:right">Paid</th>
+      <th  style="text-align:right">Balance</th>
+    </tr>
+  </thead>
+<tbody>
+  <tr>
+    <td  style="text-align:right"><%= sum %></td>
+    <td  style="text-align:right"><%= @dealerbill.debit %></td>
+    <td  style="text-align:right"><%= sum - @dealerbill.debit %></td>
+  </tr>
+</tbody>
+</table><br>
+</br>
+<p>NOTE:</p>
+<p>E.&.O.E.</p>
+<p>Goods once sold will not be taken back.</p>

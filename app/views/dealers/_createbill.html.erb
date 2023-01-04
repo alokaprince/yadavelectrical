@@ -1,0 +1,23 @@
+<% sum1=0 %>
+<%= form_with model: [ @dealer, @dealer.dealerbills.build ] do |form| %>
+ <table style="width:75%">
+  <tbody>
+      <tr>
+        <td><%= form.text_field :billno, placeholder:"billno", :required => 'required'%></td>
+        <td><%= form.text_field :date, placeholder:"date", :required => 'required' %></td>
+        <%= form.hidden_field :credit, value: sum1 %>
+        <%= form.hidden_field :debit, value: sum1 %>
+
+        <%
+=begin%>
+ <td><%= form.text_field :credit, placeholder:"credit", :required => 'required' %></td>
+        <td><%= form.text_field :debit, placeholder:"debit", :required => 'required' %></td>
+        <td><%= form.text_area :remark, placeholder:"remark"%></td>  
+<%
+=end%>
+
+        <td><%= form.submit %></td>
+      </tr>
+   </tbody>
+</table>
+  <% end %>

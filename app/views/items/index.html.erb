@@ -1,0 +1,48 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
+
+<h1>Items</h1>
+
+<table style="width:100%">
+  <thead>
+    <tr>
+      <th>Itemname</th>
+      <th>Quantity</th>
+      <th>Rate</th>
+      <th>Unit</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Bill</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.itemname %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.rate %></td>
+        <td><%= item.unit %></td>
+        <td><%= item.amount %></td>
+        <td><%= item.bill.date.strftime("%d/%m/%Y") %></td>
+        <td><%= item.bill_id %></td>
+        <td><%= item.bill.customer.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
