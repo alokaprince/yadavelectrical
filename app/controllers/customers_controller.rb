@@ -66,8 +66,11 @@ class CustomersController < ApplicationController
       @results = Customer.all.where("lower(name) LIKE :search", search: @parameter)
       end
       if @select == 'address'
-      @results = Customer.all.where("lower(name) LIKE :search", search: @parameter)
+      @results = Customer.all.where("lower(address) LIKE :search", search: @parameter)
       end
+      if @select == 'block'
+        @results = Customer.all.where("lower(block) LIKE :search", search: @parameter)
+        end
     end 
     rescue ActiveRecord::RecordNotFound  
       redirect_to :controller => "customer", :action => "index", notice: "Please type valid Entry"
@@ -93,6 +96,6 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.require(:customer).permit(:name, :father, :address, :mobile, :total, :recieve, :balance)
+      params.require(:customer).permit(:name, :father, :address, :block, :mobile, :total, :recieve, :balance)
     end
 end

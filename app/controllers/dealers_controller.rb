@@ -67,7 +67,10 @@ class DealersController < ApplicationController
       @results = Dealer.all.where("lower(name) LIKE :search", search: @parameter)
       end
       if @select == 'address'
-      @results = Dealer.all.where("lower(address) LIKE :search", search: @parameter)
+        @results = Dealer.all.where("lower(address) LIKE :search", search: @parameter)
+      end
+      if @select == 'block'
+        @results = Dealer.all.where("lower(block) LIKE :search", search: @parameter)
       end
     end 
     rescue ActiveRecord::RecordNotFound  
@@ -95,6 +98,6 @@ class DealersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dealer_params
-      params.require(:dealer).permit(:name, :address, :mobile, :total, :recieve, :balance)
+      params.require(:dealer).permit(:name, :address, :block, :mobile, :total, :recieve, :balance)
     end
 end

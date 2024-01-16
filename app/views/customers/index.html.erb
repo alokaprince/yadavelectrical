@@ -28,8 +28,8 @@ td:nth-child(8) { background-color: orange; font-weight:bold }
 
 <%= form_tag(search_page_path, :method => "get") do %>
     <%= link_to '<button type="button">New Customer</button>'.html_safe, new_customer_path %>
-    <%= search_field_tag :search, params[:search], placeholder: "Name,Address" %>
-    <%= select_tag(:select, options_for_select([['Name', 'name'], ['Address', 'address']],'name')) %>
+    <%= search_field_tag :search, params[:search], placeholder: "Name,Address,Block" %>
+    <%= select_tag(:select, options_for_select([['Name', 'name'], ['Address', 'address'],['Block', 'block']],'name')) %>
     <%= button_tag "Search"%>  
 <% end %>
 <table style="width:100%">
@@ -39,6 +39,7 @@ td:nth-child(8) { background-color: orange; font-weight:bold }
       <th>Name</th>
       <th>Fathername</th>
       <th>Address</th>
+      <th>Block</th>
       <th>Mobileno</th>
       <th>Total</th>
       <th>Recieve</th>
@@ -54,6 +55,7 @@ td:nth-child(8) { background-color: orange; font-weight:bold }
         <td><%= link_to customer.name, customer %></td>
         <td><%= customer.father %></td>
         <td><%= customer.address %></td>
+        <td><%= customer.block %></td>
         <td><%= customer.mobile %></td>
         <td><%= customer.total %></td>
         <td><%= customer.recieve %></td>

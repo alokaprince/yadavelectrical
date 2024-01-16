@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_22_172240) do
+ActiveRecord::Schema.define(version: 2024_01_16_074732) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "bills", force: :cascade do |t|
     t.string "billno"
@@ -18,7 +21,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_172240) do
     t.float "credit"
     t.float "debit"
     t.text "remark"
-    t.integer "customer_id", null: false
+    t.bigint "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_bills_on_customer_id"
@@ -34,6 +37,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_172240) do
     t.float "balance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "block"
   end
 
   create_table "dailyexps", force: :cascade do |t|
@@ -51,7 +55,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_172240) do
     t.float "credit"
     t.float "debit"
     t.text "remark"
-    t.integer "dealer_id", null: false
+    t.bigint "dealer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dealer_id"], name: "index_dealerbills_on_dealer_id"
@@ -63,7 +67,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_172240) do
     t.float "rate"
     t.string "unit"
     t.float "amount"
-    t.integer "dealerbill_id", null: false
+    t.bigint "dealerbill_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dealerbill_id"], name: "index_dealeritems_on_dealerbill_id"
@@ -78,6 +82,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_172240) do
     t.float "balance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "block"
   end
 
   create_table "items", force: :cascade do |t|
@@ -86,7 +91,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_172240) do
     t.float "rate"
     t.string "unit"
     t.float "amount"
-    t.integer "bill_id", null: false
+    t.bigint "bill_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bill_id"], name: "index_items_on_bill_id"
@@ -140,6 +145,8 @@ ActiveRecord::Schema.define(version: 2022_02_22_172240) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "amount2"
     t.float "guage2"
+    t.string "mobile"
+    t.string "date"
   end
 
   add_foreign_key "bills", "customers"

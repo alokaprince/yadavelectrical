@@ -2,9 +2,9 @@ wb = xlsx_package.workbook
 
 wb.add_worksheet(name: "Dealers") do |sheet|
   # Create the header row
-  sheet.add_row ["Name","Address","Mobile","Total","Recieved","Balance"]
+  sheet.add_row ["Name","Address","Block","Mobile","Total","Recieved","Balance"]
   # Create entries for each item
   @dealers.each do |item|
-    sheet.add_row [item.name, item.address, item.mobileno, item.total, item.recieve, item.balance]
+    sheet.add_row [item.name, item.address, item.block, item.mobileno, item.total, item.recieve, item.balance]
     end
 end

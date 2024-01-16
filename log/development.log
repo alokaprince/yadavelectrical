@@ -1,0 +1,1272 @@
+  [1m[35m (0.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "yadavelectricals"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "yadavelectricals_test"[0m
+  [1m[35m (2037.8ms)[0m  [1m[35mCREATE DATABASE "yadavelectricals" ENCODING = 'utf8'[0m
+  [1m[35m (4322.6ms)[0m  [1m[35mCREATE DATABASE "yadavelectricals_test" ENCODING = 'utf8'[0m
+Started GET "/" for 127.0.0.1 at 2024-01-15 22:52:26 +0530
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CustomersController#index as HTML
+Completed 401 Unauthorized in 49ms (ActiveRecord: 0.0ms | Allocations: 4079)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-01-15 22:52:27 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/alok/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/alok/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 23.0ms | Allocations: 593)
+  Rendered /home/alok/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 182.3ms | Allocations: 3655)
+  Rendered layouts/_navigation_links.html.erb (Duration: 1.1ms | Allocations: 514)
+  Rendered layouts/_navigation.html.erb (Duration: 1.9ms | Allocations: 818)
+  Rendered layouts/_messages.html.erb (Duration: 0.4ms | Allocations: 154)
+Completed 200 OK in 410ms (Views: 390.2ms | ActiveRecord: 6.5ms | Allocations: 59338)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-01-15 22:52:31 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"tJX9BN384LTbr4F1ZPiKoVn6OX1Va/admbDEohU9I7qS57bgUEGHL5bhNt/7Fbs094EE6PUQM/Z9uosSAih3hg==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 434ms (ActiveRecord: 0.9ms | Allocations: 6424)
+
+
+Started GET "/" for 127.0.0.1 at 2024-01-15 22:52:31 +0530
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  ↳ app/controllers/customers_controller.rb:7:in `index'
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (33.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" ORDER BY name ASC[0m
+  ↳ app/views/customers/index.html.erb:51:in `each_with_index'
+  Rendered customers/index.html.erb within layouts/application (Duration: 148.6ms | Allocations: 47117)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.2ms | Allocations: 187)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 252)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 22)
+Completed 200 OK in 245ms (Views: 122.5ms | ActiveRecord: 43.1ms | Allocations: 54640)
+
+
+Started GET "/works" for 127.0.0.1 at 2024-01-15 22:52:34 +0530
+Processing by WorksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (2.8ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/index.html.erb:50:in `each_with_index'
+  Rendered works/index.html.erb within layouts/application (Duration: 151.0ms | Allocations: 92428)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.2ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 197ms (Views: 149.5ms | ActiveRecord: 8.6ms | Allocations: 97727)
+
+
+Started GET "/dealers" for 127.0.0.1 at 2024-01-15 22:52:36 +0530
+Processing by DealersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "dealers"[0m
+  ↳ app/controllers/dealers_controller.rb:8:in `index'
+  Rendering dealers/index.html.erb within layouts/application
+  [1m[36mDealer Load (0.5ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" ORDER BY name ASC[0m
+  ↳ app/views/dealers/index.html.erb:50:in `each_with_index'
+  Rendered dealers/index.html.erb within layouts/application (Duration: 37.9ms | Allocations: 13281)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.6ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.9ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 60ms (Views: 43.0ms | ActiveRecord: 6.5ms | Allocations: 20288)
+
+
+  [1m[35m (50.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4991852808545442210)[0m
+  [1m[35m (73.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddBlockToCustomer (20240116072807)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "customers" ADD "block" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240116072807"]]
+  [1m[35m (47.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddBlockToDealer (20240116072906)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "dealers" ADD "block" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240116072906"]]
+  [1m[35m (19.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMobileToWork (20240116074549)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "works" ADD "mobile" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240116074549"]]
+  [1m[35m (21.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDateToWork (20240116074732)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "works" ADD "date" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240116074732"]]
+  [1m[35m (17.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (16.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (12.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2024-01-16 07:47:59.644125"], ["key", "environment"]]
+  [1m[35m (38.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(4991852808545442210)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-01-16 13:18:23 +0530
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CustomersController#index as HTML
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms | Allocations: 3693)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-01-16 13:18:23 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/alok/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/alok/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 593)
+  Rendered /home/alok/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2938)
+  Rendered layouts/_navigation_links.html.erb (Duration: 1.7ms | Allocations: 514)
+  Rendered layouts/_navigation.html.erb (Duration: 3.1ms | Allocations: 816)
+  Rendered layouts/_messages.html.erb (Duration: 0.7ms | Allocations: 154)
+Completed 200 OK in 67ms (Views: 50.1ms | ActiveRecord: 4.8ms | Allocations: 19172)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-01-16 13:18:26 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"fLHch7vANO4/VhMmD78fIRseqIz/z9gb5IkbCSDdl1ZuQ4qzmINnSPkl9d3I8r6VHuG4Ei1iOCUelRZUtaj5SQ==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 277ms (ActiveRecord: 1.3ms | Allocations: 5248)
+
+
+Started GET "/" for 127.0.0.1 at 2024-01-16 13:18:27 +0530
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  ↳ app/controllers/customers_controller.rb:7:in `index'
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (1.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" ORDER BY name ASC[0m
+  ↳ app/views/customers/index.html.erb:52:in `each_with_index'
+  Rendered customers/index.html.erb within layouts/application (Duration: 133.3ms | Allocations: 47811)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 187)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 252)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 22)
+Completed 200 OK in 150ms (Views: 134.5ms | ActiveRecord: 6.2ms | Allocations: 55132)
+
+
+Started GET "/customers/new" for 127.0.0.1 at 2024-01-16 13:18:37 +0530
+Processing by CustomersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering customers/new.html.erb within layouts/application
+  Rendered customers/_form.html.erb (Duration: 32.8ms | Allocations: 2185)
+  Rendered customers/new.html.erb within layouts/application (Duration: 34.4ms | Allocations: 2529)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.5ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 1.0ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 43ms (Views: 40.2ms | ActiveRecord: 0.3ms | Allocations: 7051)
+
+
+Started POST "/customers" for 127.0.0.1 at 2024-01-16 13:18:56 +0530
+Processing by CustomersController#create as HTML
+  Parameters: {"authenticity_token"=>"sb2c05Id92SnGUkpBG2X+hCdM7Dw2hzlFZ+GdsFFYc5eVBsZZDj+7WkRVei9/yKbeEPIHHxAUnZHN+iDIXe8Jg==", "customer"=>{"name"=>"a", "father"=>"b", "address"=>"c", "block"=>"d", "mobile"=>"1234567890", "total"=>"0", "recieve"=>"0", "balance"=>"0"}, "commit"=>"Create Customer"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/customers_controller.rb:35:in `block in create'
+  [1m[36mCustomer Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "customers" WHERE "customers"."name" = $1 AND "customers"."address" = $2 LIMIT $3[0m  [["name", "a"], ["address", "c"], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:35:in `block in create'
+  [1m[36mCustomer Create (86.7ms)[0m  [1m[32mINSERT INTO "customers" ("name", "father", "address", "mobile", "total", "recieve", "balance", "created_at", "updated_at", "block") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "a"], ["father", "b"], ["address", "c"], ["mobile", "1234567890"], ["total", 0.0], ["recieve", 0.0], ["balance", 0.0], ["created_at", "2024-01-16 07:48:56.591027"], ["updated_at", "2024-01-16 07:48:56.591027"], ["block", "d"]]
+  ↳ app/controllers/customers_controller.rb:35:in `block in create'
+  [1m[35m (56.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/customers_controller.rb:35:in `block in create'
+Redirected to http://localhost:3000/customers/272
+Completed 302 Found in 161ms (ActiveRecord: 144.6ms | Allocations: 6048)
+
+
+Started GET "/customers/272" for 127.0.0.1 at 2024-01-16 13:18:56 +0530
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"272"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:94:in `set_customer'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:12:in `show'
+  Rendering customers/show.html.erb within layouts/application
+  [1m[36mBill Load (0.5ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."customer_id" = $1[0m  [["customer_id", 272]]
+  ↳ app/views/customers/show.html.erb:38:in `each_with_index'
+  Rendered customers/_createbill.html.erb (Duration: 17.3ms | Allocations: 6567)
+  Rendered customers/show.html.erb within layouts/application (Duration: 51.8ms | Allocations: 16690)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 22)
+Completed 200 OK in 68ms (Views: 51.4ms | ActiveRecord: 5.9ms | Allocations: 22412)
+
+
+Started POST "/customers/272/bills" for 127.0.0.1 at 2024-01-16 13:19:17 +0530
+Processing by BillsController#create as HTML
+  Parameters: {"authenticity_token"=>"k2AscyBTel0GxnD7TtiGbfJJ4Kqicc70l1sQa2cF6rAYtFp2hgMqP9RZcEjRMRT5cqZdrhRVPDGtVh68CuJAoA==", "bill"=>{"billno"=>"b32", "date"=>"16/01/2024", "credit"=>"0", "debit"=>"0"}, "commit"=>"Create Bill", "customer_id"=>"272"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:56:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bills_controller.rb:57:in `create'
+  [1m[36mBill Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "bills" WHERE "bills"."billno" = $1 LIMIT $2[0m  [["billno", "b32"], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:57:in `create'
+  [1m[36mBill Create (37.8ms)[0m  [1m[32mINSERT INTO "bills" ("billno", "date", "credit", "debit", "customer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["billno", "b32"], ["date", "2024-01-16"], ["credit", 0.0], ["debit", 0.0], ["customer_id", 272], ["created_at", "2024-01-16 07:49:17.463408"], ["updated_at", "2024-01-16 07:49:17.463408"]]
+  ↳ app/controllers/bills_controller.rb:57:in `create'
+  [1m[35m (37.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bills_controller.rb:57:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bills_controller.rb:59:in `block in create'
+  [1m[36mCustomer Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "customers" WHERE "customers"."name" = $1 AND "customers"."id" != $2 AND "customers"."address" = $3 LIMIT $4[0m  [["name", "a"], ["id", 272], ["address", "c"], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:59:in `block in create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bills_controller.rb:59:in `block in create'
+Redirected to http://localhost:3000/bills/553
+  [1m[36mBill Load (0.6ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."customer_id" = $1[0m  [["customer_id", 272]]
+  ↳ app/controllers/bills_controller.rb:71:in `create'
+  [1m[36mCACHE Customer Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "customers" WHERE "customers"."name" = $1 AND "customers"."id" != $2 AND "customers"."address" = $3 LIMIT $4[0m  [["name", "a"], ["id", 272], ["address", "c"], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:77:in `create'
+Completed 302 Found in 130ms (ActiveRecord: 80.1ms | Allocations: 11785)
+
+
+Started GET "/bills/553" for 127.0.0.1 at 2024-01-16 13:19:17 +0530
+Processing by BillsController#show as HTML
+  Parameters: {"id"=>"553"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBill Load (0.4ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."id" = $1 LIMIT $2[0m  [["id", 553], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:198:in `set_bill'
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:35:in `show'
+  Rendering bills/show.html.erb within layouts/application
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/views/bills/show.html.erb:5
+  [1m[36mStock Load (1.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  ↳ app/views/bills/show.html.erb:26
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."bill_id" = $1[0m  [["bill_id", 553]]
+  ↳ app/views/bills/show.html.erb:48:in `each_with_index'
+  Rendered bills/show.html.erb within layouts/application (Duration: 52.0ms | Allocations: 18421)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.4ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 22)
+Completed 200 OK in 69ms (Views: 49.4ms | ActiveRecord: 10.3ms | Allocations: 24953)
+
+
+Started POST "/credit/553" for 127.0.0.1 at 2024-01-16 13:19:33 +0530
+Processing by BillsController#credit as HTML
+  Parameters: {"authenticity_token"=>"KQdZR+WL57GISkC5kc0SvfPm9sfRBMxFGFBF4sADiuHVCo2HNN7I4lT8+BC5PiX5gNIz0CZweXKI8L4NQ3ojxw==", "credit"=>"3000", "debit"=>"1000", "remark"=>"1 week", "button"=>"", "id"=>"553"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBill Load (0.5ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."id" = $1 LIMIT $2[0m  [["id", 553], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:154:in `credit'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bills_controller.rb:155:in `credit'
+  [1m[36mBill Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "bills" WHERE "bills"."billno" = $1 AND "bills"."id" != $2 LIMIT $3[0m  [["billno", "b32"], ["id", 553], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:155:in `credit'
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:155:in `credit'
+  [1m[36mBill Update (0.6ms)[0m  [1m[33mUPDATE "bills" SET "credit" = $1, "debit" = $2, "remark" = $3, "updated_at" = $4 WHERE "bills"."id" = $5[0m  [["credit", 3000.0], ["debit", 1000.0], ["remark", "1 week"], ["updated_at", "2024-01-16 07:49:33.960919"], ["id", 553]]
+  ↳ app/controllers/bills_controller.rb:155:in `credit'
+  [1m[35m (15.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bills_controller.rb:155:in `credit'
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:161:in `credit'
+  [1m[36mBill Load (0.5ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."customer_id" = $1[0m  [["customer_id", 272]]
+  ↳ app/controllers/bills_controller.rb:163:in `credit'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bills_controller.rb:169:in `credit'
+  [1m[36mCustomer Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "customers" WHERE "customers"."name" = $1 AND "customers"."id" != $2 AND "customers"."address" = $3 LIMIT $4[0m  [["name", "a"], ["id", 272], ["address", "c"], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:169:in `credit'
+  [1m[36mCustomer Update (0.5ms)[0m  [1m[33mUPDATE "customers" SET "total" = $1, "recieve" = $2, "balance" = $3, "updated_at" = $4 WHERE "customers"."id" = $5[0m  [["total", 3000.0], ["recieve", 1000.0], ["balance", 2000.0], ["updated_at", "2024-01-16 07:49:33.991347"], ["id", 272]]
+  ↳ app/controllers/bills_controller.rb:169:in `credit'
+  [1m[35m (13.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bills_controller.rb:169:in `credit'
+Redirected to http://localhost:3000/bills/553
+Completed 302 Found in 62ms (ActiveRecord: 33.9ms | Allocations: 12327)
+
+
+Started GET "/bills/553" for 127.0.0.1 at 2024-01-16 13:19:34 +0530
+Processing by BillsController#show as HTML
+  Parameters: {"id"=>"553"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBill Load (0.4ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."id" = $1 LIMIT $2[0m  [["id", 553], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:198:in `set_bill'
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:35:in `show'
+  Rendering bills/show.html.erb within layouts/application
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/views/bills/show.html.erb:5
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  ↳ app/views/bills/show.html.erb:26
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."bill_id" = $1[0m  [["bill_id", 553]]
+  ↳ app/views/bills/show.html.erb:48:in `each_with_index'
+  Rendered bills/show.html.erb within layouts/application (Duration: 8.8ms | Allocations: 3990)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.2ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 21ms (Views: 11.9ms | ActiveRecord: 1.7ms | Allocations: 9494)
+
+
+Started GET "/customers/272" for 127.0.0.1 at 2024-01-16 13:19:36 +0530
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"272"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:94:in `set_customer'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:12:in `show'
+  Rendering customers/show.html.erb within layouts/application
+  [1m[36mBill Load (0.3ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."customer_id" = $1[0m  [["customer_id", 272]]
+  ↳ app/views/customers/show.html.erb:38:in `each_with_index'
+  Rendered customers/_createbill.html.erb (Duration: 2.6ms | Allocations: 634)
+  Rendered customers/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1825)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 183)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 248)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 16ms (Views: 10.5ms | ActiveRecord: 0.7ms | Allocations: 7215)
+
+
+Started GET "/customers" for 127.0.0.1 at 2024-01-16 13:19:37 +0530
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  ↳ app/controllers/customers_controller.rb:7:in `index'
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (1.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" ORDER BY name ASC[0m
+  ↳ app/views/customers/index.html.erb:52:in `each_with_index'
+  Rendered customers/index.html.erb within layouts/application (Duration: 73.9ms | Allocations: 41865)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.2ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 83ms (Views: 76.9ms | ActiveRecord: 1.6ms | Allocations: 46862)
+
+
+Started GET "/customers/272/edit" for 127.0.0.1 at 2024-01-16 13:19:43 +0530
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"272"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:94:in `set_customer'
+  Rendering customers/edit.html.erb within layouts/application
+  Rendered customers/edit.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1777)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 16ms (Views: 9.6ms | ActiveRecord: 0.8ms | Allocations: 6841)
+
+
+Started GET "/customers" for 127.0.0.1 at 2024-01-16 13:19:46 +0530
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  ↳ app/controllers/customers_controller.rb:7:in `index'
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT "customers".* FROM "customers" ORDER BY name ASC[0m
+  ↳ app/views/customers/index.html.erb:52:in `each_with_index'
+  Rendered customers/index.html.erb within layouts/application (Duration: 64.7ms | Allocations: 41864)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.2ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 74ms (Views: 69.2ms | ActiveRecord: 1.4ms | Allocations: 46831)
+
+
+Started GET "/search?search=a&select=name&button=" for 127.0.0.1 at 2024-01-16 13:19:51 +0530
+Processing by CustomersController#search as HTML
+  Parameters: {"search"=>"a", "select"=>"name", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering customers/search.html.erb within layouts/application
+  [1m[36mCustomer Load (1.5ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE (lower(name) LIKE 'a')[0m
+  ↳ app/views/customers/_search_name.html.erb:34:in `each_with_index'
+  Rendered customers/_search_name.html.erb (Duration: 5.2ms | Allocations: 1250)
+  Rendered customers/search.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1686)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.4ms | Allocations: 183)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 248)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 17ms (Views: 11.0ms | ActiveRecord: 1.8ms | Allocations: 6226)
+
+
+Started GET "/customers" for 127.0.0.1 at 2024-01-16 13:19:53 +0530
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  ↳ app/controllers/customers_controller.rb:7:in `index'
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (1.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" ORDER BY name ASC[0m
+  ↳ app/views/customers/index.html.erb:52:in `each_with_index'
+  Rendered customers/index.html.erb within layouts/application (Duration: 63.4ms | Allocations: 41863)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.2ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 72ms (Views: 66.0ms | ActiveRecord: 2.0ms | Allocations: 46868)
+
+
+Started GET "/search?search=c&select=address&button=" for 127.0.0.1 at 2024-01-16 13:20:06 +0530
+Processing by CustomersController#search as HTML
+  Parameters: {"search"=>"c", "select"=>"address", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering customers/search.html.erb within layouts/application
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE (lower(address) LIKE 'c')[0m
+  ↳ app/views/customers/_search_address.html.erb:32:in `each_with_index'
+  Rendered customers/_search_address.html.erb (Duration: 23.6ms | Allocations: 4603)
+  Rendered customers/search.html.erb within layouts/application (Duration: 24.3ms | Allocations: 4818)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.8ms | Allocations: 6756)
+
+
+  
+ActionView::Template::Error (undefined method `fathername' for #<Customer:0x000055aa98ee93d0>
+Did you mean?  father):
+    33:       <tr>
+    34:         <td><%= index + 1 %></td>
+    35:         <td><%= result.name %></td>
+    36:         <td><%= result.fathername %></td>
+    37:         <td><%= result.mobileno %></td>
+    38:         <td><%= result.balance %></td>
+    39:     
+  
+app/views/customers/_search_address.html.erb:36
+app/views/customers/_search_address.html.erb:32:in `each_with_index'
+app/views/customers/_search_address.html.erb:32
+app/views/customers/search.html.erb:10
+Started GET "/search?search=c&select=address&button=" for 127.0.0.1 at 2024-01-16 13:20:50 +0530
+Processing by CustomersController#search as HTML
+  Parameters: {"search"=>"c", "select"=>"address", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering customers/search.html.erb within layouts/application
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE (lower(address) LIKE 'c')[0m
+  ↳ app/views/customers/_search_address.html.erb:32:in `each_with_index'
+  Rendered customers/_search_address.html.erb (Duration: 3.5ms | Allocations: 964)
+  Rendered customers/search.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1390)
+  Rendered layouts/_navigation_links.html.erb (Duration: 1.2ms | Allocations: 465)
+  Rendered layouts/_navigation.html.erb (Duration: 2.2ms | Allocations: 756)
+  Rendered layouts/_messages.html.erb (Duration: 0.7ms | Allocations: 137)
+Completed 200 OK in 22ms (Views: 17.7ms | ActiveRecord: 0.8ms | Allocations: 7994)
+
+
+Started GET "/customers" for 127.0.0.1 at 2024-01-16 13:20:53 +0530
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  ↳ app/controllers/customers_controller.rb:7:in `index'
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (1.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" ORDER BY name ASC[0m
+  ↳ app/views/customers/index.html.erb:52:in `each_with_index'
+  Rendered customers/index.html.erb within layouts/application (Duration: 75.0ms | Allocations: 42435)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.2ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 83ms (Views: 77.6ms | ActiveRecord: 1.7ms | Allocations: 47583)
+
+
+Started GET "/search?search=d&select=block&button=" for 127.0.0.1 at 2024-01-16 13:21:00 +0530
+Processing by CustomersController#search as HTML
+  Parameters: {"search"=>"d", "select"=>"block", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering customers/search.html.erb within layouts/application
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE (lower(block) LIKE 'd')[0m
+  ↳ app/views/customers/_search_block.html.erb:34:in `each_with_index'
+  Rendered customers/_search_block.html.erb (Duration: 4.2ms | Allocations: 1003)
+  Rendered customers/search.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1219)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.6ms | Allocations: 183)
+  Rendered layouts/_navigation.html.erb (Duration: 0.9ms | Allocations: 248)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 0.9ms | Allocations: 5613)
+
+
+Started GET "/customers" for 127.0.0.1 at 2024-01-16 13:21:02 +0530
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  ↳ app/controllers/customers_controller.rb:7:in `index'
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (1.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" ORDER BY name ASC[0m
+  ↳ app/views/customers/index.html.erb:52:in `each_with_index'
+  Rendered customers/index.html.erb within layouts/application (Duration: 66.1ms | Allocations: 41865)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 76ms (Views: 68.5ms | ActiveRecord: 2.2ms | Allocations: 46845)
+
+
+Started GET "/customers/272/edit" for 127.0.0.1 at 2024-01-16 13:21:36 +0530
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"272"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:94:in `set_customer'
+  Rendering customers/edit.html.erb within layouts/application
+  Rendered customers/edit.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1768)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 0.5ms | Allocations: 6847)
+
+
+Started PATCH "/customers/272" for 127.0.0.1 at 2024-01-16 13:21:45 +0530
+Processing by CustomersController#update as HTML
+  Parameters: {"authenticity_token"=>"9g9x8UVfQ7OxQcUnk5u7lFQtEzWzV6aXK5GDV/jYA5x3j677erQGgf2Kr2d6YtuidDdd9etNKean8mAlQfxV1Q==", "customer"=>{"name"=>"z", "father"=>"b", "address"=>"c", "block"=>"d", "mobile"=>"1234567890"}, "commit"=>"Update Customer", "id"=>"272"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:94:in `set_customer'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:49:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/customers_controller.rb:51:in `update'
+  [1m[36mCustomer Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "customers" WHERE "customers"."name" = $1 AND "customers"."id" != $2 AND "customers"."address" = $3 LIMIT $4[0m  [["name", "z"], ["id", 272], ["address", "c"], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:51:in `update'
+  [1m[36mCustomer Update (0.7ms)[0m  [1m[33mUPDATE "customers" SET "name" = $1, "updated_at" = $2 WHERE "customers"."id" = $3[0m  [["name", "z"], ["updated_at", "2024-01-16 07:51:45.057801"], ["id", 272]]
+  ↳ app/controllers/customers_controller.rb:51:in `update'
+  [1m[35m (25.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/customers_controller.rb:51:in `update'
+Redirected to http://localhost:3000/customers
+Completed 302 Found in 41ms (ActiveRecord: 27.2ms | Allocations: 6700)
+
+
+Started GET "/customers" for 127.0.0.1 at 2024-01-16 13:21:45 +0530
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  ↳ app/controllers/customers_controller.rb:7:in `index'
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.9ms)[0m  [1m[34mSELECT "customers".* FROM "customers" ORDER BY name ASC[0m
+  ↳ app/views/customers/index.html.erb:52:in `each_with_index'
+  Rendered customers/index.html.erb within layouts/application (Duration: 69.9ms | Allocations: 41865)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.4ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 22)
+Completed 200 OK in 79ms (Views: 74.0ms | ActiveRecord: 1.3ms | Allocations: 46921)
+
+
+Started GET "/search?search=z&select=name&button=" for 127.0.0.1 at 2024-01-16 13:21:58 +0530
+Processing by CustomersController#search as HTML
+  Parameters: {"search"=>"z", "select"=>"name", "button"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering customers/search.html.erb within layouts/application
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE (lower(name) LIKE 'z')[0m
+  ↳ app/views/customers/_search_name.html.erb:34:in `each_with_index'
+  Rendered customers/_search_name.html.erb (Duration: 3.4ms | Allocations: 1248)
+  Rendered customers/search.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1461)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 183)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 248)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 14ms (Views: 9.1ms | ActiveRecord: 0.9ms | Allocations: 5884)
+
+
+Started GET "/customers/272" for 127.0.0.1 at 2024-01-16 13:22:00 +0530
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"272"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:94:in `set_customer'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:12:in `show'
+  Rendering customers/show.html.erb within layouts/application
+  [1m[36mBill Load (0.5ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."customer_id" = $1[0m  [["customer_id", 272]]
+  ↳ app/views/customers/show.html.erb:38:in `each_with_index'
+  Rendered customers/_createbill.html.erb (Duration: 4.0ms | Allocations: 896)
+  Rendered customers/show.html.erb within layouts/application (Duration: 10.5ms | Allocations: 2666)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 22ms (Views: 15.2ms | ActiveRecord: 1.0ms | Allocations: 8203)
+
+
+Started GET "/print.272" for 127.0.0.1 at 2024-01-16 13:22:01 +0530
+Processing by CustomersController#print as 
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:17:in `print'
+  Rendering customers/print.html.erb
+  [1m[36mBill Load (0.5ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."customer_id" = $1[0m  [["customer_id", 272]]
+  ↳ app/views/customers/print.html.erb:38
+  Rendered customers/print.html.erb (Duration: 6.8ms | Allocations: 2733)
+Completed 200 OK in 15ms (Views: 7.8ms | ActiveRecord: 1.1ms | Allocations: 5282)
+
+
+Started GET "/bills/553" for 127.0.0.1 at 2024-01-16 13:22:09 +0530
+Processing by BillsController#show as HTML
+  Parameters: {"id"=>"553"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBill Load (0.4ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."id" = $1 LIMIT $2[0m  [["id", 553], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:198:in `set_bill'
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:35:in `show'
+  Rendering bills/show.html.erb within layouts/application
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/views/bills/show.html.erb:5
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  ↳ app/views/bills/show.html.erb:26
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."bill_id" = $1[0m  [["bill_id", 553]]
+  ↳ app/views/bills/show.html.erb:48:in `each_with_index'
+  Rendered bills/show.html.erb within layouts/application (Duration: 14.0ms | Allocations: 4910)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 27ms (Views: 18.8ms | ActiveRecord: 2.0ms | Allocations: 11082)
+
+
+Started GET "/print2.553" for 127.0.0.1 at 2024-01-16 13:22:11 +0530
+Processing by BillsController#print2 as 
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBill Load (0.5ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."id" = $1 LIMIT $2[0m  [["id", 553], ["LIMIT", 1]]
+  ↳ app/controllers/bills_controller.rb:45:in `print2'
+  Rendering bills/print2.html.erb
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/views/bills/print2.html.erb:5
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."bill_id" = $1[0m  [["bill_id", 553]]
+  ↳ app/views/bills/print2.html.erb:34:in `each_with_index'
+  Rendered bills/print2.html.erb (Duration: 8.3ms | Allocations: 2025)
+Completed 200 OK in 16ms (Views: 9.2ms | ActiveRecord: 1.6ms | Allocations: 4560)
+
+
+Started GET "/customers/272" for 127.0.0.1 at 2024-01-16 13:22:20 +0530
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"272"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:94:in `set_customer'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:12:in `show'
+  Rendering customers/show.html.erb within layouts/application
+  [1m[36mBill Load (0.3ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."customer_id" = $1[0m  [["customer_id", 272]]
+  ↳ app/views/customers/show.html.erb:38:in `each_with_index'
+  Rendered customers/_createbill.html.erb (Duration: 1.4ms | Allocations: 634)
+  Rendered customers/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1823)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 183)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 248)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 16ms (Views: 10.5ms | ActiveRecord: 0.8ms | Allocations: 7214)
+
+
+Started GET "/customers" for 127.0.0.1 at 2024-01-16 13:22:25 +0530
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  ↳ app/controllers/customers_controller.rb:7:in `index'
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.9ms)[0m  [1m[34mSELECT "customers".* FROM "customers" ORDER BY name ASC[0m
+  ↳ app/views/customers/index.html.erb:52:in `each_with_index'
+  Rendered customers/index.html.erb within layouts/application (Duration: 73.5ms | Allocations: 41865)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 87ms (Views: 76.9ms | ActiveRecord: 2.2ms | Allocations: 46867)
+
+
+Started DELETE "/customers/272" for 127.0.0.1 at 2024-01-16 13:22:31 +0530
+Processing by CustomersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TV0lpcsQ6ATA1xp8VRbQNIfAMD8SHklnjHoWy4bf2j/1UKZ2vqhqcAEqK9a6+hZ7lQ1RvLOAK4u4iqLLM3+zIg==", "id"=>"272"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:94:in `set_customer'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 272], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:83:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/customers_controller.rb:84:in `destroy'
+  [1m[36mBill Load (0.3ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."customer_id" = $1[0m  [["customer_id", 272]]
+  ↳ app/controllers/customers_controller.rb:84:in `destroy'
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."bill_id" = $1[0m  [["bill_id", 553]]
+  ↳ app/controllers/customers_controller.rb:84:in `destroy'
+  [1m[36mBill Destroy (0.8ms)[0m  [1m[31mDELETE FROM "bills" WHERE "bills"."id" = $1[0m  [["id", 553]]
+  ↳ app/controllers/customers_controller.rb:84:in `destroy'
+  [1m[36mCustomer Destroy (0.8ms)[0m  [1m[31mDELETE FROM "customers" WHERE "customers"."id" = $1[0m  [["id", 272]]
+  ↳ app/controllers/customers_controller.rb:84:in `destroy'
+  [1m[35m (19.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/customers_controller.rb:84:in `destroy'
+Redirected to http://localhost:3000/customers
+Completed 302 Found in 41ms (ActiveRecord: 22.6ms | Allocations: 8130)
+
+
+Started GET "/customers" for 127.0.0.1 at 2024-01-16 13:22:31 +0530
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  ↳ app/controllers/customers_controller.rb:7:in `index'
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT "customers".* FROM "customers" ORDER BY name ASC[0m
+  ↳ app/views/customers/index.html.erb:52:in `each_with_index'
+  Rendered customers/index.html.erb within layouts/application (Duration: 64.0ms | Allocations: 41617)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 22)
+Completed 200 OK in 72ms (Views: 67.1ms | ActiveRecord: 1.4ms | Allocations: 46674)
+
+
+Started GET "/dealers" for 127.0.0.1 at 2024-01-16 13:22:33 +0530
+Processing by DealersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "dealers"[0m
+  ↳ app/controllers/dealers_controller.rb:8:in `index'
+  Rendering dealers/index.html.erb within layouts/application
+  [1m[36mDealer Load (0.9ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" ORDER BY name ASC[0m
+  ↳ app/views/dealers/index.html.erb:51:in `each_with_index'
+  Rendered dealers/index.html.erb within layouts/application (Duration: 28.8ms | Allocations: 13870)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 45ms (Views: 30.4ms | ActiveRecord: 5.7ms | Allocations: 20925)
+
+
+Started GET "/dealers/new" for 127.0.0.1 at 2024-01-16 13:22:39 +0530
+Processing by DealersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dealers/new.html.erb within layouts/application
+  Rendered dealers/_form.html.erb (Duration: 3.3ms | Allocations: 1753)
+  Rendered dealers/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2082)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 183)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 248)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 15ms (Views: 12.0ms | ActiveRecord: 0.2ms | Allocations: 6590)
+
+
+Started POST "/dealers" for 127.0.0.1 at 2024-01-16 13:22:52 +0530
+Processing by DealersController#create as HTML
+  Parameters: {"authenticity_token"=>"MyH6ve7ZNJOPpy1F2paojnk9N75jSrs+l8a4ZI7ROl6ncrzZDnnO/3G5I53FDKUX2VyM9hAD1YZVh6Cl3iCuSA==", "dealer"=>{"name"=>"dadu", "address"=>"khi", "block"=>"", "mobile"=>"", "total"=>"0", "recieve"=>"0", "balance"=>"0"}, "commit"=>"Create Dealer"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/dealers_controller.rb:36:in `block in create'
+  [1m[36mDealer Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "dealers" WHERE "dealers"."name" = $1 AND "dealers"."address" = $2 LIMIT $3[0m  [["name", "dadu"], ["address", "khi"], ["LIMIT", 1]]
+  ↳ app/controllers/dealers_controller.rb:36:in `block in create'
+  [1m[36mDealer Create (7.6ms)[0m  [1m[32mINSERT INTO "dealers" ("name", "address", "mobile", "total", "recieve", "balance", "created_at", "updated_at", "block") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "dadu"], ["address", "khi"], ["mobile", ""], ["total", 0.0], ["recieve", 0.0], ["balance", 0.0], ["created_at", "2024-01-16 07:52:52.974708"], ["updated_at", "2024-01-16 07:52:52.974708"], ["block", ""]]
+  ↳ app/controllers/dealers_controller.rb:36:in `block in create'
+  [1m[35m (20.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/dealers_controller.rb:36:in `block in create'
+Redirected to http://localhost:3000/dealers/36
+Completed 302 Found in 52ms (ActiveRecord: 28.9ms | Allocations: 5815)
+
+
+Started GET "/dealers/36" for 127.0.0.1 at 2024-01-16 13:22:53 +0530
+Processing by DealersController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDealer Load (0.4ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealers_controller.rb:96:in `set_dealer'
+  [1m[36mCACHE Dealer Load (0.0ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealers_controller.rb:13:in `show'
+  Rendering dealers/show.html.erb within layouts/application
+  [1m[36mDealerbill Load (0.4ms)[0m  [1m[34mSELECT "dealerbills".* FROM "dealerbills" WHERE "dealerbills"."dealer_id" = $1[0m  [["dealer_id", 36]]
+  ↳ app/views/dealers/show.html.erb:37:in `each_with_index'
+  Rendered dealers/_createbill.html.erb (Duration: 14.2ms | Allocations: 5815)
+  Rendered dealers/show.html.erb within layouts/application (Duration: 27.1ms | Allocations: 9383)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 22)
+Completed 200 OK in 38ms (Views: 28.0ms | ActiveRecord: 4.0ms | Allocations: 15096)
+
+
+Started GET "/dealers" for 127.0.0.1 at 2024-01-16 13:22:57 +0530
+Processing by DealersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "dealers"[0m
+  ↳ app/controllers/dealers_controller.rb:8:in `index'
+  Rendering dealers/index.html.erb within layouts/application
+  [1m[36mDealer Load (0.5ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" ORDER BY name ASC[0m
+  ↳ app/views/dealers/index.html.erb:51:in `each_with_index'
+  Rendered dealers/index.html.erb within layouts/application (Duration: 17.6ms | Allocations: 8722)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.5ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.9ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 26ms (Views: 22.0ms | ActiveRecord: 1.0ms | Allocations: 13714)
+
+
+Started GET "/dealers/36/edit" for 127.0.0.1 at 2024-01-16 13:23:00 +0530
+Processing by DealersController#edit as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDealer Load (0.3ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealers_controller.rb:96:in `set_dealer'
+  Rendering dealers/edit.html.erb within layouts/application
+  Rendered dealers/edit.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1537)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 183)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 248)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 13ms (Views: 8.6ms | ActiveRecord: 0.5ms | Allocations: 6588)
+
+
+Started PATCH "/dealers/36" for 127.0.0.1 at 2024-01-16 13:23:20 +0530
+Processing by DealersController#update as HTML
+  Parameters: {"authenticity_token"=>"MLjS2N+2C8kWCIGQ8cPy57754kmhVck+DMh0Bbo/zaF+wz7BlA3M2Ov6sIbAii4NwljemjtwuWYUhcEmAPg8eA==", "dealer"=>{"name"=>"dadu", "address"=>"khitaula", "block"=>"sihora", "mobile"=>"1234566789"}, "commit"=>"Update Dealer", "id"=>"36"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDealer Load (0.3ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealers_controller.rb:96:in `set_dealer'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/dealers_controller.rb:49:in `block in update'
+  [1m[36mDealer Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "dealers" WHERE "dealers"."name" = $1 AND "dealers"."id" != $2 AND "dealers"."address" = $3 LIMIT $4[0m  [["name", "dadu"], ["id", 36], ["address", "khitaula"], ["LIMIT", 1]]
+  ↳ app/controllers/dealers_controller.rb:49:in `block in update'
+  [1m[36mDealer Update (0.5ms)[0m  [1m[33mUPDATE "dealers" SET "address" = $1, "block" = $2, "mobile" = $3, "updated_at" = $4 WHERE "dealers"."id" = $5[0m  [["address", "khitaula"], ["block", "sihora"], ["mobile", "1234566789"], ["updated_at", "2024-01-16 07:53:20.561711"], ["id", 36]]
+  ↳ app/controllers/dealers_controller.rb:49:in `block in update'
+  [1m[35m (22.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/dealers_controller.rb:49:in `block in update'
+Redirected to http://localhost:3000/dealers/36
+Completed 302 Found in 34ms (ActiveRecord: 24.0ms | Allocations: 6314)
+
+
+Started GET "/dealers/36" for 127.0.0.1 at 2024-01-16 13:23:20 +0530
+Processing by DealersController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDealer Load (0.3ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealers_controller.rb:96:in `set_dealer'
+  [1m[36mCACHE Dealer Load (0.0ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealers_controller.rb:13:in `show'
+  Rendering dealers/show.html.erb within layouts/application
+  [1m[36mDealerbill Load (0.3ms)[0m  [1m[34mSELECT "dealerbills".* FROM "dealerbills" WHERE "dealerbills"."dealer_id" = $1[0m  [["dealer_id", 36]]
+  ↳ app/views/dealers/show.html.erb:37:in `each_with_index'
+  Rendered dealers/_createbill.html.erb (Duration: 1.2ms | Allocations: 632)
+  Rendered dealers/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1559)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 175)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 240)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 22)
+Completed 200 OK in 14ms (Views: 8.0ms | ActiveRecord: 0.9ms | Allocations: 6980)
+
+
+Started POST "/dealers/36/dealerbills" for 127.0.0.1 at 2024-01-16 13:23:29 +0530
+Processing by DealerbillsController#create as HTML
+  Parameters: {"authenticity_token"=>"N7a63SaipYLzPaIX6xQCM7/O9wK+Wa+Lu62aj8th4u1jZf9pCjWUJYlm0kAN8FTijD9/KyYSp1oSJ9AtoiJv9w==", "dealerbill"=>{"billno"=>"b33", "date"=>"16-01-2024", "credit"=>"0", "debit"=>"0"}, "commit"=>"Create Dealerbill", "dealer_id"=>"36"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDealer Load (0.3ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealerbills_controller.rb:34:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/dealerbills_controller.rb:35:in `create'
+  [1m[36mDealerbill Create (1.9ms)[0m  [1m[32mINSERT INTO "dealerbills" ("billno", "date", "credit", "debit", "dealer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["billno", "b33"], ["date", "2024-01-16"], ["credit", 0.0], ["debit", 0.0], ["dealer_id", 36], ["created_at", "2024-01-16 07:53:29.571527"], ["updated_at", "2024-01-16 07:53:29.571527"]]
+  ↳ app/controllers/dealerbills_controller.rb:35:in `create'
+  [1m[35m (33.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/dealerbills_controller.rb:35:in `create'
+Redirected to http://localhost:3000/dealerbills/106
+  [1m[36mDealerbill Load (0.9ms)[0m  [1m[34mSELECT "dealerbills".* FROM "dealerbills" WHERE "dealerbills"."dealer_id" = $1[0m  [["dealer_id", 36]]
+  ↳ app/controllers/dealerbills_controller.rb:50:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/dealerbills_controller.rb:56:in `create'
+  [1m[36mDealer Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "dealers" WHERE "dealers"."name" = $1 AND "dealers"."id" != $2 AND "dealers"."address" = $3 LIMIT $4[0m  [["name", "dadu"], ["id", 36], ["address", "khitaula"], ["LIMIT", 1]]
+  ↳ app/controllers/dealerbills_controller.rb:56:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/dealerbills_controller.rb:56:in `create'
+Completed 302 Found in 73ms (ActiveRecord: 38.3ms | Allocations: 9391)
+
+
+Started GET "/dealerbills/106" for 127.0.0.1 at 2024-01-16 13:23:29 +0530
+Processing by DealerbillsController#show as HTML
+  Parameters: {"id"=>"106"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDealerbill Load (0.5ms)[0m  [1m[34mSELECT "dealerbills".* FROM "dealerbills" WHERE "dealerbills"."id" = $1 LIMIT $2[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/dealerbills_controller.rb:177:in `set_dealerbill'
+  [1m[36mDealer Load (0.3ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealerbills_controller.rb:12:in `show'
+  Rendering dealerbills/show.html.erb within layouts/application
+  [1m[36mCACHE Dealer Load (0.0ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/views/dealerbills/show.html.erb:5
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  ↳ app/views/dealerbills/show.html.erb:26
+  [1m[36mDealeritem Load (0.3ms)[0m  [1m[34mSELECT "dealeritems".* FROM "dealeritems" WHERE "dealeritems"."dealerbill_id" = $1[0m  [["dealerbill_id", 106]]
+  ↳ app/views/dealerbills/show.html.erb:48:in `each_with_index'
+  Rendered dealerbills/show.html.erb within layouts/application (Duration: 29.8ms | Allocations: 11495)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 22)
+Completed 200 OK in 44ms (Views: 30.4ms | ActiveRecord: 6.2ms | Allocations: 17852)
+
+
+Started POST "/credit2/106" for 127.0.0.1 at 2024-01-16 13:23:42 +0530
+Processing by DealerbillsController#credit2 as HTML
+  Parameters: {"authenticity_token"=>"jnG0pIjJ+kzuazk26sAtuZWicSNqP5dFrIzi7/91pag99iDqIV/xg1XvgTQ729A5Sn76fJwAOC/Hs6YZidzQOw==", "credit"=>"15000", "debit"=>"12000", "remark"=>"", "button"=>"", "id"=>"106"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDealerbill Load (0.3ms)[0m  [1m[34mSELECT "dealerbills".* FROM "dealerbills" WHERE "dealerbills"."id" = $1 LIMIT $2[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/dealerbills_controller.rb:133:in `credit2'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/dealerbills_controller.rb:134:in `credit2'
+  [1m[36mDealer Load (0.3ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealerbills_controller.rb:134:in `credit2'
+  [1m[36mDealerbill Update (0.8ms)[0m  [1m[33mUPDATE "dealerbills" SET "credit" = $1, "debit" = $2, "remark" = $3, "updated_at" = $4 WHERE "dealerbills"."id" = $5[0m  [["credit", 15000.0], ["debit", 12000.0], ["remark", ""], ["updated_at", "2024-01-16 07:53:42.259354"], ["id", 106]]
+  ↳ app/controllers/dealerbills_controller.rb:134:in `credit2'
+  [1m[35m (22.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/dealerbills_controller.rb:134:in `credit2'
+  [1m[36mDealer Load (0.3ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealerbills_controller.rb:140:in `credit2'
+  [1m[36mDealerbill Load (0.5ms)[0m  [1m[34mSELECT "dealerbills".* FROM "dealerbills" WHERE "dealerbills"."dealer_id" = $1[0m  [["dealer_id", 36]]
+  ↳ app/controllers/dealerbills_controller.rb:142:in `credit2'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/dealerbills_controller.rb:148:in `credit2'
+  [1m[36mDealer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "dealers" WHERE "dealers"."name" = $1 AND "dealers"."id" != $2 AND "dealers"."address" = $3 LIMIT $4[0m  [["name", "dadu"], ["id", 36], ["address", "khitaula"], ["LIMIT", 1]]
+  ↳ app/controllers/dealerbills_controller.rb:148:in `credit2'
+  [1m[36mDealer Update (0.4ms)[0m  [1m[33mUPDATE "dealers" SET "total" = $1, "recieve" = $2, "balance" = $3, "updated_at" = $4 WHERE "dealers"."id" = $5[0m  [["total", 15000.0], ["recieve", 12000.0], ["balance", 3000.0], ["updated_at", "2024-01-16 07:53:42.304358"], ["id", 36]]
+  ↳ app/controllers/dealerbills_controller.rb:148:in `credit2'
+  [1m[35m (13.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/dealerbills_controller.rb:148:in `credit2'
+Redirected to http://localhost:3000/dealerbills/106
+Completed 302 Found in 72ms (ActiveRecord: 39.4ms | Allocations: 11204)
+
+
+Started GET "/dealerbills/106" for 127.0.0.1 at 2024-01-16 13:23:42 +0530
+Processing by DealerbillsController#show as HTML
+  Parameters: {"id"=>"106"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDealerbill Load (0.3ms)[0m  [1m[34mSELECT "dealerbills".* FROM "dealerbills" WHERE "dealerbills"."id" = $1 LIMIT $2[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/dealerbills_controller.rb:177:in `set_dealerbill'
+  [1m[36mDealer Load (0.2ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealerbills_controller.rb:12:in `show'
+  Rendering dealerbills/show.html.erb within layouts/application
+  [1m[36mCACHE Dealer Load (0.0ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/views/dealerbills/show.html.erb:5
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  ↳ app/views/dealerbills/show.html.erb:26
+  [1m[36mDealeritem Load (0.4ms)[0m  [1m[34mSELECT "dealeritems".* FROM "dealeritems" WHERE "dealeritems"."dealerbill_id" = $1[0m  [["dealerbill_id", 106]]
+  ↳ app/views/dealerbills/show.html.erb:48:in `each_with_index'
+  Rendered dealerbills/show.html.erb within layouts/application (Duration: 10.9ms | Allocations: 3990)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 22ms (Views: 14.6ms | ActiveRecord: 1.7ms | Allocations: 9510)
+
+
+Started GET "/print4.106" for 127.0.0.1 at 2024-01-16 13:23:45 +0530
+  
+AbstractController::ActionNotFound (The action 'print4' could not be found for DealersController):
+  
+actionpack (6.0.4) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/cookies.rb:654:in `call'
+activerecord (6.0.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/dealers/36" for 127.0.0.1 at 2024-01-16 13:23:52 +0530
+Processing by DealersController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDealer Load (0.3ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealers_controller.rb:96:in `set_dealer'
+  [1m[36mCACHE Dealer Load (0.0ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealers_controller.rb:13:in `show'
+  Rendering dealers/show.html.erb within layouts/application
+  [1m[36mDealerbill Load (0.3ms)[0m  [1m[34mSELECT "dealerbills".* FROM "dealerbills" WHERE "dealerbills"."dealer_id" = $1[0m  [["dealer_id", 36]]
+  ↳ app/views/dealers/show.html.erb:37:in `each_with_index'
+  Rendered dealers/_createbill.html.erb (Duration: 1.8ms | Allocations: 634)
+  Rendered dealers/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1822)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 182)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 247)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 15ms (Views: 9.3ms | ActiveRecord: 0.9ms | Allocations: 7250)
+
+
+Started GET "/print3.36" for 127.0.0.1 at 2024-01-16 13:23:55 +0530
+Processing by DealersController#print3 as 
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDealer Load (0.3ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE "dealers"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/dealers_controller.rb:18:in `print3'
+  Rendering dealers/print3.html.erb
+  [1m[36mDealerbill Load (0.6ms)[0m  [1m[34mSELECT "dealerbills".* FROM "dealerbills" WHERE "dealerbills"."dealer_id" = $1[0m  [["dealer_id", 36]]
+  ↳ app/views/dealers/print3.html.erb:37
+  Rendered dealers/print3.html.erb (Duration: 5.1ms | Allocations: 1318)
+Completed 200 OK in 11ms (Views: 5.5ms | ActiveRecord: 1.3ms | Allocations: 3855)
+
+
+Started GET "/dealers" for 127.0.0.1 at 2024-01-16 13:24:14 +0530
+Processing by DealersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "dealers"[0m
+  ↳ app/controllers/dealers_controller.rb:8:in `index'
+  Rendering dealers/index.html.erb within layouts/application
+  [1m[36mDealer Load (0.5ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" ORDER BY name ASC[0m
+  ↳ app/views/dealers/index.html.erb:51:in `each_with_index'
+  Rendered dealers/index.html.erb within layouts/application (Duration: 14.8ms | Allocations: 8725)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 25ms (Views: 19.0ms | ActiveRecord: 1.3ms | Allocations: 13749)
+
+
+Started GET "/dealersearch?search=dadu&select=name&button=" for 127.0.0.1 at 2024-01-16 13:24:25 +0530
+Processing by DealersController#dealersearch as HTML
+  Parameters: {"search"=>"dadu", "select"=>"name", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dealers/dealersearch.html.erb within layouts/application
+  [1m[36mDealer Load (0.6ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE (lower(name) LIKE 'dadu')[0m
+  ↳ app/views/dealers/_search_name.html.erb:33:in `each_with_index'
+  Rendered dealers/_search_name.html.erb (Duration: 5.0ms | Allocations: 1227)
+  Rendered dealers/dealersearch.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1650)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.4ms | Allocations: 182)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | Allocations: 247)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 15ms (Views: 11.2ms | ActiveRecord: 0.8ms | Allocations: 6172)
+
+
+Started GET "/dealers" for 127.0.0.1 at 2024-01-16 13:24:26 +0530
+Processing by DealersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "dealers"[0m
+  ↳ app/controllers/dealers_controller.rb:8:in `index'
+  Rendering dealers/index.html.erb within layouts/application
+  [1m[36mDealer Load (0.6ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" ORDER BY name ASC[0m
+  ↳ app/views/dealers/index.html.erb:51:in `each_with_index'
+  Rendered dealers/index.html.erb within layouts/application (Duration: 18.3ms | Allocations: 8719)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 27ms (Views: 22.1ms | ActiveRecord: 1.1ms | Allocations: 13699)
+
+
+Started GET "/dealersearch?search=khitaula&select=address&button=" for 127.0.0.1 at 2024-01-16 13:24:35 +0530
+Processing by DealersController#dealersearch as HTML
+  Parameters: {"search"=>"khitaula", "select"=>"address", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dealers/dealersearch.html.erb within layouts/application
+  [1m[36mDealer Load (0.5ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE (lower(address) LIKE 'khitaula')[0m
+  ↳ app/views/dealers/_search_address.html.erb:31:in `each_with_index'
+  Rendered dealers/_search_address.html.erb (Duration: 4.4ms | Allocations: 947)
+  Rendered dealers/dealersearch.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1154)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 182)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 247)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 15ms (Views: 10.3ms | ActiveRecord: 0.7ms | Allocations: 5540)
+
+
+Started GET "/dealers" for 127.0.0.1 at 2024-01-16 13:24:36 +0530
+Processing by DealersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "dealers"[0m
+  ↳ app/controllers/dealers_controller.rb:8:in `index'
+  Rendering dealers/index.html.erb within layouts/application
+  [1m[36mDealer Load (0.6ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" ORDER BY name ASC[0m
+  ↳ app/views/dealers/index.html.erb:51:in `each_with_index'
+  Rendered dealers/index.html.erb within layouts/application (Duration: 16.1ms | Allocations: 8722)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 25ms (Views: 20.1ms | ActiveRecord: 1.2ms | Allocations: 13696)
+
+
+Started GET "/dealersearch?search=sihora&select=block&button=" for 127.0.0.1 at 2024-01-16 13:24:45 +0530
+Processing by DealersController#dealersearch as HTML
+  Parameters: {"search"=>"sihora", "select"=>"block", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dealers/dealersearch.html.erb within layouts/application
+  [1m[36mDealer Load (0.9ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" WHERE (lower(block) LIKE 'sihora')[0m
+  ↳ app/views/dealers/_search_block.html.erb:33:in `each_with_index'
+  Rendered dealers/_search_block.html.erb (Duration: 5.7ms | Allocations: 981)
+  Rendered dealers/dealersearch.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1188)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 182)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 247)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 16ms (Views: 10.9ms | ActiveRecord: 1.2ms | Allocations: 5569)
+
+
+Started GET "/dealers" for 127.0.0.1 at 2024-01-16 13:24:47 +0530
+Processing by DealersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "dealers"[0m
+  ↳ app/controllers/dealers_controller.rb:8:in `index'
+  Rendering dealers/index.html.erb within layouts/application
+  [1m[36mDealer Load (0.5ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" ORDER BY name ASC[0m
+  ↳ app/views/dealers/index.html.erb:51:in `each_with_index'
+  Rendered dealers/index.html.erb within layouts/application (Duration: 15.7ms | Allocations: 8722)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.5ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 27ms (Views: 21.5ms | ActiveRecord: 1.1ms | Allocations: 13698)
+
+
+Started GET "/works" for 127.0.0.1 at 2024-01-16 13:24:49 +0530
+Processing by WorksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (1.6ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/index.html.erb:50:in `each_with_index'
+  Rendered works/index.html.erb within layouts/application (Duration: 133.8ms | Allocations: 93385)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.2ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 143ms (Views: 133.3ms | ActiveRecord: 5.8ms | Allocations: 98671)
+
+
+Started GET "/works" for 127.0.0.1 at 2024-01-16 13:25:45 +0530
+Processing by WorksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (1.5ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/index.html.erb:52:in `each_with_index'
+  Rendered works/index.html.erb within layouts/application (Duration: 106.5ms | Allocations: 80849)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.6ms | Allocations: 466)
+  Rendered layouts/_navigation.html.erb (Duration: 1.9ms | Allocations: 757)
+  Rendered layouts/_messages.html.erb (Duration: 0.4ms | Allocations: 137)
+Completed 200 OK in 117ms (Views: 113.3ms | ActiveRecord: 1.7ms | Allocations: 87329)
+
+
+Started GET "/works/new" for 127.0.0.1 at 2024-01-16 13:25:48 +0530
+Processing by WorksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (Duration: 13.0ms | Allocations: 4775)
+  Rendered works/new.html.erb within layouts/application (Duration: 14.5ms | Allocations: 5113)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 183)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 248)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 23ms (Views: 18.4ms | ActiveRecord: 0.3ms | Allocations: 9627)
+
+
+Started POST "/works" for 127.0.0.1 at 2024-01-16 13:26:17 +0530
+Processing by WorksController#create as HTML
+  Parameters: {"authenticity_token"=>"WWQKB0WmE6TXuCZTV7wqXUIlRUDKmyr77GXTFIMZ1RkSg36lj2ly8iy9iyNP/w9D2fCq/6SUjcolRKyONUpAdA==", "work"=>{"name"=>"pawan", "mobile"=>"5357648648", "date"=>"16-01-2024", "company"=>"", "HP"=>"", "model"=>"V3", "pitch1"=>"", "turn1"=>"", "slot"=>"", "gauge"=>"", "connection"=>"star", "coil"=>"", "pitch2"=>"", "turn2"=>"", "guage2"=>"", "weight"=>"", "stetarlen"=>"", "length"=>"", "amount"=>"4000", "amount2"=>"500", "remark"=>""}, "commit"=>"Create Work"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:27:in `block in create'
+  [1m[36mWork Create (31.1ms)[0m  [1m[32mINSERT INTO "works" ("name", "HP", "company", "model", "pitch1", "connection", "coil", "pitch2", "remark", "amount", "created_at", "updated_at", "amount2", "mobile", "date") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["name", "pawan"], ["HP", ""], ["company", ""], ["model", "V3"], ["pitch1", ""], ["connection", "star"], ["coil", ""], ["pitch2", ""], ["remark", ""], ["amount", 4000.0], ["created_at", "2024-01-16 07:56:17.142169"], ["updated_at", "2024-01-16 07:56:17.142169"], ["amount2", 500.0], ["mobile", "5357648648"], ["date", "16-01-2024"]]
+  ↳ app/controllers/works_controller.rb:27:in `block in create'
+  [1m[35m (59.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/works/436
+Completed 302 Found in 103ms (ActiveRecord: 90.7ms | Allocations: 4786)
+
+
+Started GET "/works/436" for 127.0.0.1 at 2024-01-16 13:26:17 +0530
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"436"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 436], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:76:in `set_work'
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 612)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 183)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 248)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 22)
+Completed 200 OK in 14ms (Views: 6.3ms | ActiveRecord: 0.9ms | Allocations: 5891)
+
+
+Started GET "/works" for 127.0.0.1 at 2024-01-16 13:26:19 +0530
+Processing by WorksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (1.3ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/index.html.erb:52:in `each_with_index'
+  Rendered works/index.html.erb within layouts/application (Duration: 115.7ms | Allocations: 80483)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.2ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 123ms (Views: 117.7ms | ActiveRecord: 1.6ms | Allocations: 84861)
+
+
+Started GET "/works/436/edit" for 127.0.0.1 at 2024-01-16 13:26:33 +0530
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"436"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 436], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:76:in `set_work'
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (Duration: 3.1ms | Allocations: 1544)
+  Rendered works/edit.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1751)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.4ms | Allocations: 182)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 247)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 16ms (Views: 9.5ms | ActiveRecord: 0.6ms | Allocations: 6850)
+
+
+Started PATCH "/works/436" for 127.0.0.1 at 2024-01-16 13:26:46 +0530
+Processing by WorksController#update as HTML
+  Parameters: {"authenticity_token"=>"FAhwZv7oa9qmH4NrnQELsDyzIDJHND57xZbfsp3qxOzMZCNusZTbiSVuj7/VfK6g6cBeaHQE0lRwkopSPIyoMw==", "work"=>{"name"=>"pawan", "mobile"=>"5357648648", "date"=>"16-01-2024", "company"=>"", "HP"=>"", "model"=>"V3", "pitch1"=>"", "turn1"=>"", "slot"=>"", "gauge"=>"", "connection"=>"star", "coil"=>"", "pitch2"=>"", "turn2"=>"", "guage2"=>"", "weight"=>"", "stetarlen"=>"", "length"=>"", "amount"=>"4000-", "amount2"=>"500.0", "remark"=>""}, "commit"=>"Update Work", "id"=>"436"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 436], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:76:in `set_work'
+Redirected to http://localhost:3000/works/436
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms | Allocations: 3049)
+
+
+Started GET "/works/436" for 127.0.0.1 at 2024-01-16 13:26:46 +0530
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"436"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 436], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:76:in `set_work'
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 81)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.4ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 22)
+Completed 200 OK in 13ms (Views: 6.9ms | ActiveRecord: 0.7ms | Allocations: 5091)
+
+
+Started GET "/works" for 127.0.0.1 at 2024-01-16 13:26:52 +0530
+Processing by WorksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (1.7ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/index.html.erb:52:in `each_with_index'
+  Rendered works/index.html.erb within layouts/application (Duration: 111.3ms | Allocations: 80482)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.2ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 118ms (Views: 113.1ms | ActiveRecord: 2.0ms | Allocations: 84861)
+
+
+Started GET "/works/436/edit" for 127.0.0.1 at 2024-01-16 13:27:03 +0530
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"436"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 436], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:76:in `set_work'
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (Duration: 3.7ms | Allocations: 1528)
+  Rendered works/edit.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1619)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.9ms | Allocations: 175)
+  Rendered layouts/_navigation.html.erb (Duration: 1.4ms | Allocations: 240)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 16ms (Views: 12.0ms | ActiveRecord: 0.5ms | Allocations: 6567)
+
+
+Started GET "/works" for 127.0.0.1 at 2024-01-16 13:27:08 +0530
+Processing by WorksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (1.1ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/index.html.erb:52:in `each_with_index'
+  Rendered works/index.html.erb within layouts/application (Duration: 156.8ms | Allocations: 80478)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.2ms | Allocations: 176)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 241)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 167ms (Views: 162.7ms | ActiveRecord: 1.4ms | Allocations: 84851)
+
+
+Started GET "/dealers" for 127.0.0.1 at 2024-01-16 13:27:16 +0530
+Processing by DealersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "dealers"[0m
+  ↳ app/controllers/dealers_controller.rb:8:in `index'
+  Rendering dealers/index.html.erb within layouts/application
+  [1m[36mDealer Load (0.5ms)[0m  [1m[34mSELECT "dealers".* FROM "dealers" ORDER BY name ASC[0m
+  ↳ app/views/dealers/index.html.erb:51:in `each_with_index'
+  Rendered dealers/index.html.erb within layouts/application (Duration: 28.4ms | Allocations: 9281)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.4ms | Allocations: 184)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | Allocations: 249)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 52ms (Views: 40.0ms | ActiveRecord: 1.2ms | Allocations: 14958)
+
+

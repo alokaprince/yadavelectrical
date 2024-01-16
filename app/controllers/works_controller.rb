@@ -78,6 +78,6 @@ class WorksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def work_params
-      params.require(:work).permit(:name, :HP, :company, :model, :pitch1, :turn1, :gauge, :weight, :slot, :connection, :coil, :pitch2, :turn2,:guage2, :stetarlen, :length, :remark, :amount, :amount2)
+      params.require(:work).permit(:name, :HP, :company, :model, :pitch1, :turn1, :gauge, :weight, :slot, :connection, :coil, :pitch2, :turn2,:guage2, :stetarlen, :length, :remark, :amount, :amount2, :mobile, :date,)
     end
 end
